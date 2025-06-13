@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разработка | DevBotCreator</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.discordapp.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span>Dev</span>Bot<span>Creator</span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="mods.html" class="nav-link">Моды</a>
+                <a href="dev.html" class="nav-link active">Разработка</a>
+                <a href="orders.html" class="nav-link accent">Заказать</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-header">
+            <h1>Мои проекты</h1>
+            <p>Веб-сайты, боты и другие разработки</p>
+        </div>
+        
+        <div class="dev-section">
+            <div class="dev-grid">
+                <div class="dev-category">
+                    <div class="category-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h2>Веб-сайты</h2>
+                    <div class="dev-list">
+                        <div class="dev-item">
+                            <i class="fas fa-link"></i>
+                            <div>
+                                <h3>CFUDIK</h3>
+                                <p>Версия 8.2</p>
+                            </div>
+                        </div>
+                        <div class="dev-item">
+                            <i class="fas fa-link"></i>
+                            <div>
+                                <h3>ModHub</h3>
+                                <p>Версия 2.1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dev-category">
+                    <div class="category-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <h2>Telegram боты</h2>
+                    <div class="dev-list">
+                        <div class="dev-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div>
+                                <h3>DevBot Shop</h3>
+                                <p>Магазин ботов</p>
+                            </div>
+                        </div>
+                        <div class="dev-item">
+                            <i class="fas fa-redo"></i>
+                            <div>
+                                <h3>DevBot Redux</h3>
+                                <p>Улучшенная версия</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dev-category">
+                    <div class="category-icon">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <h2>Discord боты</h2>
+                    <div class="dev-list">
+                        <div class="dev-item">
+                            <i class="fas fa-robot"></i>
+                            <div>
+                                <h3>DevBot Core</h3>
+                                <p>Основной функционал</p>
+                            </div>
+                        </div>
+                        <div class="dev-item">
+                            <i class="fas fa-ticket-alt"></i>
+                            <div>
+                                <h3>DevBot Ticket</h3>
+                                <p>Система тикетов</p>
+                            </div>
+                        </div>
+                        <div class="dev-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3>Vibivalo Community</h3>
+                                <p>Сообщество</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://discord.gg/mtxr5dFtZk" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://t.me/ov3rhau1" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://github.com/lega-dev" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">© 2025 DevBotCreator | Все права защищены</div>
+        </div>
+    </footer>
+    <div class="about">Сайт разработан lega</div>
+    <div class="about">Версия сайта 1.4</div>
+</body>
+</html>
+<!-- Добавить в конец <body> -->
+<script>
+if(localStorage.getItem('siteClosed') === 'true') {
+    document.querySelector('.main-content').innerHTML = `
+        <div class="section-header" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+                <h1 style="color: #ff4e50;">Сайт закрыт на технические работы</h1>
+                <p>Приносим извинения за неудобства</p>
+            </div>
+        </div>
+    `;
+}
+</script>

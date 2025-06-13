@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заказы | DevBotCreator</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.discordapp.com https://fonts.googleapis.com https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        select option {
+            background-color: var(--dark);
+            color: var(--text);
+        }
+        select:focus, select:active {
+            color: var(--text) !important;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span>Dev</span>Bot<span>Creator</span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="mods.html" class="nav-link">Моды</a>
+                <a href="dev.html" class="nav-link">Разработка</a>
+                <a href="orders.html" class="nav-link active accent">Заказать</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-header">
+            <h1>Заказать разработку</h1>
+            <p>Заполните форму, и я свяжусь с вами в ближайшее время</p>
+        </div>
+        
+        <div class="order-section">
+            <form class="order-form" id="orderForm">
+                <div class="form-group">
+                    <label for="service-type">
+                        <i class="fas fa-tasks"></i> Тип услуги:
+                    </label>
+                    <select id="service-type" name="service-type" required>
+                        <option value="">Выберите тип</option>
+                        <option value="website">Веб-сайт</option>
+                        <option value="tg-bot">Телеграм бот</option>
+                        <option value="ds-bot">Discord бот</option>
+                        <option value="mod">Мод для игры</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">
+                        <i class="fas fa-file-alt"></i> Описание проекта:
+                    </label>
+                    <textarea id="description" name="description" placeholder="Опишите детали вашего проекта..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="budget">
+                        <i class="fas fa-wallet"></i> Бюджет (₽):
+                    </label>
+                    <input type="number" id="budget" name="budget" min="10" placeholder="Укажите ваш бюджет" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">
+                        <i class="fas fa-id-card"></i> Контакт (Telegram/Discord):
+                    </label>
+                    <input type="text" id="contact" name="contact" placeholder="Ваш контакт для связи" required>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn primary">
+                        <i class="fas fa-paper-plane"></i> Отправить заявку
+                    </button>
+                    <button type="button" class="btn secondary" id="infoButton">
+                        <i class="fas fa-info-circle"></i> Информация
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://discord.gg/mtxr5dFtZk" target="_blank">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://t.me/ov3rhau1" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://github.com/lega-dev" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="copyright">© 2025 DevBotCreator | Все права защищены</div>
+        </div>
+    </footer>
+
+    <div class="about">Сайт разработан lega</div>
+    <div class="about">Версия сайта 1.4</div>
+
+    <!-- Заменить весь тег <script> в конце файла -->
+<script>
+// Функция отправки в Discord
+function sendToDiscord(data) {
+    const webhookURL = 'https://discord.com/api/webhooks/https://discord.com/api/webhooks/1378843960965075034/tFsAk8wul8JjURWjax0pUo7lP3D3bDu-vUJNwnXn8h-NzjSx_rnYAD0kvP3_BuCeRm-f';
+    
+    const embed = {
+        title: "Новый заказ!",
+        color: 0x6a11cb,
+        fields: [
+            { name: "Тип услуги", value: data.serviceType },
+            { name: "Описание", value: data.description },
+            { name: "Бюджет", value: `${data.budget}₽` },
+            { name: "Контакт", value: data.contact }
+        ],
+        timestamp: new Date().toISOString()
+    };
+
+    return fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ embeds: [embed] })
+    });
+}
+
+document.getElementById('infoButton').addEventListener('click', function() {
+    const infoText = `Как работает процесс:\n\n1. Вы заполняете форму заявки\n2. Я связываюсь с вами в течение 24 часов\n3. Обсуждаем детали и сроки\n4. Вы вносите предоплату 50%\n5. Я приступаю к работе\n6. Вы получаете готовый продукт\n7. Переводите остальные 50%`;
+    alert(infoText);
+});
+
+document.getElementById('orderForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const form = this;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+    submitBtn.disabled = true;
+
+    const formData = {
+        serviceType: form.querySelector('#service-type').value,
+        description: form.querySelector('#description').value,
+        budget: form.querySelector('#budget').value,
+        contact: form.querySelector('#contact').value
+    };
+
+    sendToDiscord(formData)
+    .then(response => {
+        if (response.ok) {
+            alert('Заявка успешно отправлена! Я свяжусь с вами в ближайшее время.');
+            form.reset();
+        } else {
+            throw new Error('Ошибка при отправке заявки');
+        }
+    })
+    .catch(error => {
+        console.error('Ошибка:', error);
+        alert('Не удалось отправить заявку. Пожалуйста, напишите мне напрямую: @manager_devbot');
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+    });
+});
+
+// Команды для управления сайтом (в консоли)
+console.log("Доступные команды:");
+console.log("!close - закрыть сайт на техобслуживание");
+console.log("!open - открыть сайт");
+
+window.closeSite = function() {
+    localStorage.setItem('siteClosed', 'true');
+    alert('Сайт закрыт на технические работы');
+    location.reload();
+};
+
+window.openSite = function() {
+    localStorage.setItem('siteClosed', 'false');
+    alert('Сайт открыт');
+    location.reload();
+};
+</script>

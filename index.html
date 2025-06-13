@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная | DevBotCreator</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://cdn.discordapp.com https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="icon.png">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span>Dev</span>Bot<span>Creator</span>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="mods.html" class="nav-link">Мои работы</a>
+                <a href="dev.html" class="nav-link">Разработка</a>
+                <a href="orders.html" class="nav-link accent">Заказать</a>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- В начало <body> добавить -->
+<script>
+if(localStorage.getItem('siteClosed') === 'true') {
+    document.querySelector('.hero-section').innerHTML = `
+        <div class="section-header" style="min-height: 70vh; display: flex; align-items: center; justify-content: center;">
+            <div style="text-align: center;">
+                <h1 style="color: #ff4e50;">Сайт закрыт на технические работы</h1>
+                <p>Приносим извинения за неудобства</p>
+            </div>
+        </div>
+    `;
+    document.querySelector('.features-section').innerHTML = '';
+}
+</script>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>LEGA</h1>
+                    <p>Разработчик ботов и веб-сайтов</p>
+                    <div class="hero-buttons">
+                        <a href="mods.html" class="btn primary">
+                            <i class="fas fa-code"></i> Мои работы
+                        </a>
+                        <a href="orders.html" class="btn secondary">
+                            <i class="fas fa-paper-plane"></i> Заказать
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-avatar">
+                    <div class="avatar-placeholder">
+                        <img src="avatar.jpg" alt="LEGA Avatar" class="avatar-image" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Боты для Telegram и Discord</h3>
+                <p>Автоматизируем ваши задачи с помощью умных ботов</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Веб-разработка</h3>
+                <p>Современные сайты и веб-приложения</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Поддержка 24/7</h3>
+                <p>Помощь и консультации после выполнения работы</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo">
+                    <span>Dev</span>Bot<span>Creator</span>
+                </div>
+                <p>Разработка Discord и Telegram ботов, веб-сайтов и кастомных решений</p>
+            </div>
+            
+            <div class="footer-links">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="mods.html">Мои работы</a></li>
+                    <li><a href="dev.html">Разработка</a></li>
+                    <li><a href="orders.html">Заказать</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-social">
+                <h3>Контакты</h3>
+                <div class="social-links">
+                    <a href="https://discord.gg/uzpwuzfnen" target="_blank">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://t.me/DevBotCreator" target="_blank">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://github.com/lega-dev" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 DevBotCreator
+            <span class="version">v2.2</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
